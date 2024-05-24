@@ -3,6 +3,14 @@ let currentCatTax = 0;
 
 // TODO: calcButtonClick function
 // Function should handle the following items:
+// 1) Generate a random, whole number between 0 and 20.
+// 2) If the random number is not 0, update the amountOwed div to display "You owe {random number} cat tax! Pay up!"
+// 3) If the random number is not 0, update the pay button text to display "Pay Cat Tax"
+// 4) If the random number is not 0, update the pay button so that it is no longer hidden
+// 5) If the random number is 0, update the amountOwed div to display "You owe {random number} cat tax! You've escaped this time!"
+// 6) If the random number is 0, update the pay button so that it is hidden.
+// 7) Both the amountOwed and pay amount button should be updated every time the calculate cat tax button is clicked.
+
 function calcButtonClick() {
     currentCatTax = Math.round(Math.random() * 20) 
 
@@ -20,13 +28,6 @@ function calcButtonClick() {
     }
     imageContainer.innerHTML = ""
 }
-// 1) Generate a random, whole number between 0 and 20.
-// 2) If the random number is not 0, update the amountOwed div to display "You owe {random number} cat tax! Pay up!"
-// 3) If the random number is not 0, update the pay button text to display "Pay Cat Tax"
-// 4) If the random number is not 0, update the pay button so that it is no longer hidden
-// 5) If the random number is 0, update the amountOwed div to display "You owe {random number} cat tax! You've escaped this time!"
-// 6) If the random number is 0, update the pay button so that it is hidden.
-// 7) Both the amountOwed and pay amount button should be updated every time the calculate cat tax button is clicked.
 
 // TODO: payButton function
 // Function should handle the following items:
@@ -41,7 +42,6 @@ function payButton() {
     let amountOwed = document.getElementById("amountOwed")
     let imageContainer = document.getElementById("imageContainer")
 
-
     if (currentCatTax > 0) {
         amountOwed.innerHTML = `You still owe ${currentCatTax} cat tax! Pay up!`
         fetch("https://api.thecatapi.com/v1/images/search")
@@ -55,14 +55,12 @@ function payButton() {
                 imageContainer.appendChild(imageElement)
             })} else 
     if (currentCatTax <= 0) {
-       imageContainer.innerHTML = ""
-
+        document.getElementById("container").style.display = "none";
+        imageContainer.innerHTML = '';
         amountOwed.innerHTML = "Your debts are paid..."
         let finalImage = document.createElement("img")
         finalImage.src = "https://media.tenor.com/QMQmyssO0UMAAAAM/cat-wiggle.gif"
         imageContainer.appendChild(finalImage)
     }
-
     currentCatTax--
-
 }
