@@ -42,6 +42,7 @@ function payButton() {
     let amountOwed = document.getElementById("amountOwed")
     let imageContainer = document.getElementById("imageContainer")
 
+    currentCatTax--
     if (currentCatTax > 0) {
         amountOwed.innerHTML = `You still owe ${currentCatTax} cat tax! Pay up!`
         fetch("https://api.thecatapi.com/v1/images/search")
@@ -61,6 +62,7 @@ function payButton() {
         let finalImage = document.createElement("img")
         finalImage.src = "https://media.tenor.com/QMQmyssO0UMAAAAM/cat-wiggle.gif"
         imageContainer.appendChild(finalImage)
+        imageContainer.classList.add("lastGif")
+
     }
-    currentCatTax--
 }

@@ -1,7 +1,30 @@
+* {
+    text-align: center;
+}
+
 .payBtn {
     opacity: 0;
 }
 
 .show {
     opacity: 100;
+}
+
+img {
+    width: 20%; 
+    height: 100px;
+    display: inline; 
+    margin: 10px;
+}
+
+.image-container {
+    display: flex;
+    flex-wrap: wrap; 
+}
+
+.lastGif {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
 }
