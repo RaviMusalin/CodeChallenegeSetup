@@ -70,7 +70,6 @@ function payButton() {
     if (currentCatTax < 0) {
         document.getElementById("container").style.display = "none";
         imageContainer.innerHTML = '';
-        // amountOwed.innerHTML = "Your debts are paid..."
         let finalImage = document.createElement("img")
         finalImage.src = "https://media.tenor.com/QMQmyssO0UMAAAAM/cat-wiggle.gif"
         imageContainer.appendChild(finalImage)
