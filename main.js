@@ -55,10 +55,22 @@ function payButton() {
                 imageElement.src = imageURL
                 imageContainer.appendChild(imageElement)
             })} else 
-    if (currentCatTax <= 0) {
+    if (currentCatTax === 0) {
+        amountOwed.innerHTML = "Your debts are paid..."
+        fetch("https://api.thecatapi.com/v1/images/search")
+            .then(res => { 
+                return res.json()
+            })
+            .then(data => {
+                let imageURL = data[0].url
+                let imageElement = document.createElement("img")
+                imageElement.src = imageURL
+                imageContainer.appendChild(imageElement)
+            })} else
+    if (currentCatTax < 0) {
         document.getElementById("container").style.display = "none";
         imageContainer.innerHTML = '';
-        amountOwed.innerHTML = "Your debts are paid..."
+        // amountOwed.innerHTML = "Your debts are paid..."
         let finalImage = document.createElement("img")
         finalImage.src = "https://media.tenor.com/QMQmyssO0UMAAAAM/cat-wiggle.gif"
         imageContainer.appendChild(finalImage)
